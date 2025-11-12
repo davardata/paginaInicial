@@ -221,13 +221,108 @@
             gap: 8px;
         }
         
+        .download-btn {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: #1e3a8a;
+            color: white;
+            padding: 12px 24px;
+            border-radius: 8px;
+            border: none;
+            cursor: pointer;
+            font-size: 1em;
+            font-weight: 600;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+            z-index: 1000;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .download-btn:hover {
+            background: #1e40af;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 8px rgba(0,0,0,0.15);
+        }
+        
+        .download-btn:active {
+            transform: translateY(0);
+        }
+        
         @media print {
+            .download-btn {
+                display: none;
+            }
+            
             body {
                 background: white;
+                margin: 0;
+                padding: 0;
             }
+            
             .container {
                 box-shadow: none;
                 margin: 0;
+                max-width: 100%;
+            }
+            
+            .header {
+                background: #1e3a8a !important;
+                -webkit-print-color-adjust: exact;
+                print-color-adjust: exact;
+                color: white !important;
+                page-break-after: avoid;
+            }
+            
+            .section {
+                page-break-inside: avoid;
+            }
+            
+            .job {
+                page-break-inside: avoid;
+            }
+            
+            .education-item,
+            .skill-category,
+            .info-box,
+            .reference-card {
+                page-break-inside: avoid;
+                background: #f9f9f9 !important;
+                -webkit-print-color-adjust: exact;
+                print-color-adjust: exact;
+            }
+            
+            .section-title {
+                color: #1e3a8a !important;
+                border-bottom: 3px solid #1e3a8a !important;
+                -webkit-print-color-adjust: exact;
+                print-color-adjust: exact;
+                page-break-after: avoid;
+            }
+            
+            .job-date {
+                color: #1e3a8a !important;
+                -webkit-print-color-adjust: exact;
+                print-color-adjust: exact;
+            }
+            
+            .skill-category,
+            .reference-card {
+                border-left: 4px solid #1e3a8a !important;
+                -webkit-print-color-adjust: exact;
+                print-color-adjust: exact;
+            }
+            
+            h4 {
+                color: #1e3a8a !important;
+                -webkit-print-color-adjust: exact;
+                print-color-adjust: exact;
+            }
+            
+            .content {
+                padding: 20px;
             }
         }
         
@@ -246,6 +341,10 @@
     </style>
 </head>
 <body>
+    <button class="download-btn" onclick="downloadPDF()">
+        📄 Descargar PDF
+    </button>
+    
     <div class="container">
         <div class="header">
             <h1>Roberto Lavagnino</h1>
@@ -459,5 +558,11 @@
             </div>
         </div>
     </div>
+    
+    <script>
+        function downloadPDF() {
+            window.print();
+        }
+    </script>
 </body>
 </html>
