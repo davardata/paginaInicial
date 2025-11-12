@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nuestro Equipo - DavarData</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: #f5f5f5;
+        }
+        
+        /* Header */
+        .header {
+            background: linear-gradient(135deg, #1e3a8a 0%, #1e40af 100%);
+            color: white;
+            padding: 60px 20px;
+            text-align: center;
+        }
+        
+        .header h1 {
+            font-size: 3em;
+            margin-bottom: 15px;
+        }
+        
+        .header p {
+            font-size: 1.2em;
+            opacity: 0.9;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        .back-btn {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            background: rgba(255,255,255,0.2);
+            color: white;
+            padding: 10px 20px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .back-btn:hover {
+            background: rgba(255,255,255,0.3);
+            transform: translateX(-5px);
+        }
+        
+        /* Team Grid */
+        .container {
+            max-width: 1200px;
+            margin: -50px auto 80px;
+            padding: 0 20px;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 40px;
+        }
+        
+        .team-card {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+            animation: fadeInUp 0.6s ease forwards;
+            opacity: 0;
+        }
+        
+        .team-card:nth-child(1) { animation-delay: 0.1s; }
+        .team-card:nth-child(2) { animation-delay: 0.2s; }
+        .team-card:nth-child(3) { animation-delay: 0.3s; }
+        .team-card:nth-child(4) { animation-delay: 0.4s; }
+        
+        .team-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+        }
+        
+        .team-photo {
+            width: 100%;
+            height: 320px;
+            background: linear-gradient(135deg, #1e3a8a 0%, #1e40af 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 10em;
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .team-photo::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
+            animation: pulse 3s ease-in-out infinite;
+        }
+        
+        .team-info {
+            padding: 30px;
+        }
+        
+        .team-info h2 {
+            color: #1e3a8a;
+            font-size: 1.8em;
+            margin-bottom: 10px;
+        }
+        
+        .team-role {
+            color: #666;
+            font-size: 1.1em;
+            font-weight: 600;
+            margin-bottom: 15px;
+            padding-bottom: 15px;
+            border-bottom: 2px solid #f0f0f0;
+        }
+        
+        .team-description {
+            color: #666;
+            line-height: 1.8;
+            margin-bottom: 20px;
+        }
+        
+        .team-skills {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-bottom: 25px;
+        }
+        
+        .skill-tag {
+            background: #e8eef9;
+            color: #1e3a8a;
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 0.85em;
+            font-weight: 600;
+        }
+        
+        .team-actions {
+            display: flex;
+            gap: 10px;
+        }
+        
+        .btn {
+            flex: 1;
+            padding: 12px 20px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            text-align: center;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+        }
+        
+        .btn-primary {
+            background: #1e3a8a;
+            color: white;
+        }
+        
+        .btn-primary:hover {
+            background: #1e40af;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(30,58,138,0.3);
+        }
+        
+        .btn-secondary {
+            background: #f0f0f0;
+            color: #333;
+        }
+        
+        .btn-secondary:hover {
+            background: #e0e0e0;
+            transform: translateY(-2px);
+        }
+        
+        /* Stats Section */
+        .stats-section {
+            background: white;
+            padding: 60px 20px;
+            margin-top: 40px;
+        }
+        
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .stat-item {
+            text-align: center;
+            padding: 20px;
+        }
+        
+        .stat-number {
+            font-size: 3em;
+            font-weight: bold;
+            color: #1e3a8a;
+            margin-bottom: 10px;
+        }
+        
+        .stat-label {
+            color: #666;
+            font-size: 1.1em;
+        }
+        
+        /* Footer */
+        .footer {
+            background: #1a1a1a;
+            color: white;
+            text-align: center;
+            padding: 30px 20px;
+        }
+        
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        @keyframes pulse {
+            0%, 100% {
+                transform: translate(-50%, -50%) scale(1);
+            }
+            50% {
+                transform: translate(-50%, -50%) scale(1.1);
+            }
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .header h1 {
+                font-size: 2em;
+            }
+            
+            .team-photo {
+                height: 250px;
+                font-size: 7em;
+            }
+            
+            .team-actions {
+                flex-direction: column;
+            }
+            
+            .back-btn {
+                position: static;
+                margin-bottom: 20px;
+                display: inline-flex;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <a href="/" class="back-btn">← Volver al inicio</a>
+        <h1>Nuestro Equipo</h1>
+        <p>Expertos en inteligencia artificial, análisis de datos y desarrollo de software</p>
+    </div>
+    
+    <div class="container">
+        <div class="team-grid">
+            <!-- Roberto Lavagnino -->
+            <div class="team-card">
+                <div class="team-photo">👨‍💻</div>
+                <div class="team-info">
+                    <h2>Roberto Lavagnino</h2>
+                    <div class="team-role">Ingeniero de Soluciones de IA y DBA</div>
+                    <p class="team-description">
+                        Ingeniero en datos con maestría en Gestión Industrial. Especialista en IA, 
+                        deep learning y arquitecturas distribuidas. Más de 15 años de experiencia 
+                        desarrollando sistemas inteligentes y soluciones de análisis de datos.
+                    </p>
+                    <div class="team-skills">
+                        <span class="skill-tag">Machine Learning</span>
+                        <span class="skill-tag">Deep Learning</span>
+                        <span class="skill-tag">MongoDB</span>
+                        <span class="skill-tag">Elasticsearch</span>
+                        <span class="skill-tag">Python</span>
+                        <span class="skill-tag">Node.js</span>
+                    </div>
+                    <div class="team-actions">
+                        <a href="/rlavagnino" class="btn btn-primary">📄 Ver CV Completo</a>
+                        <a href="mailto:roberto.lavagnino@davardata.com" class="btn btn-secondary">📧 Contactar</a>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Puedes agregar más miembros aquí -->
+            <!-- Ejemplo de card para futuros miembros:
+            <div class="team-card">
+                <div class="team-photo">👩‍💻</div>
+                <div class="team-info">
+                    <h2>Nombre Apellido</h2>
+                    <div class="team-role">Rol del empleado</div>
+                    <p class="team-description">
+                        Descripción del empleado...
+                    </p>
+                    <div class="team-skills">
+                        <span class="skill-tag">Skill 1</span>
+                        <span class="skill-tag">Skill 2</span>
+                    </div>
+                    <div class="team-actions">
+                        <a href="/cv-empleado" class="btn btn-primary">📄 Ver CV Completo</a>
+                        <a href="mailto:email@davardata.com" class="btn btn-secondary">📧 Contactar</a>
+                    </div>
+                </div>
+            </div>
+            -->
+        </div>
+    </div>
+    
+    <div class="stats-section">
+        <div class="stats-grid">
+            <div class="stat-item">
+                <div class="stat-number">15+</div>
+                <div class="stat-label">Años de Experiencia</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number">50+</div>
+                <div class="stat-label">Proyectos Completados</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number">12+</div>
+                <div class="stat-label">Tecnologías Dominadas</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number">100%</div>
+                <div class="stat-label">Satisfacción del Cliente</div>
+            </div>
+        </div>
+    </div>
+    
+    <footer class="footer">
+        <p>&copy; 2024 DavarData - Soluciones de Inteligencia Artificial y Datos</p>
+        <p style="margin-top: 10px; opacity: 0.7;">Transformando datos en conocimiento</p>
+    </footer>
+</body>
+</html>
