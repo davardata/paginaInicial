@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CV - Roberto Lavagnino</title>
+    <title>DavarData - Soluciones de Inteligencia Artificial y Datos</title>
     <style>
         * {
             margin: 0;
@@ -18,551 +18,540 @@
             background: #f5f5f5;
         }
         
-        .container {
-            max-width: 900px;
-            margin: 20px auto;
-            background: white;
-            box-shadow: 0 0 20px rgba(0,0,0,0.1);
-        }
-        
-        .header {
+        /* Hero Section */
+        .hero {
             background: linear-gradient(135deg, #1e3a8a 0%, #1e40af 100%);
             color: white;
-            padding: 40px;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
             text-align: center;
+            padding: 20px;
+            position: relative;
+            overflow: hidden;
         }
         
-        .header h1 {
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="rgba(255,255,255,0.05)" d="M0,96L48,112C96,128,192,160,288,160C384,160,480,128,576,112C672,96,768,96,864,112C960,128,1056,160,1152,160C1248,160,1344,128,1392,112L1440,96L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path></svg>');
+            background-size: cover;
+            opacity: 0.5;
+        }
+        
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            max-width: 800px;
+        }
+        
+        .hero h1 {
+            font-size: 3.5em;
+            margin-bottom: 20px;
+            animation: fadeInUp 1s ease;
+        }
+        
+        .hero .tagline {
+            font-size: 1.5em;
+            margin-bottom: 30px;
+            opacity: 0.9;
+            animation: fadeInUp 1s ease 0.2s both;
+        }
+        
+        .hero p {
+            font-size: 1.1em;
+            margin-bottom: 40px;
+            line-height: 1.8;
+            animation: fadeInUp 1s ease 0.4s both;
+        }
+        
+        .cta-buttons {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            flex-wrap: wrap;
+            animation: fadeInUp 1s ease 0.6s both;
+        }
+        
+        .btn {
+            padding: 15px 40px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.1em;
+            transition: all 0.3s ease;
+            display: inline-block;
+        }
+        
+        .btn-primary {
+            background: white;
+            color: #1e3a8a;
+        }
+        
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+        }
+        
+        .btn-secondary {
+            background: transparent;
+            color: white;
+            border: 2px solid white;
+        }
+        
+        .btn-secondary:hover {
+            background: white;
+            color: #1e3a8a;
+            transform: translateY(-3px);
+        }
+        
+        /* Services Section */
+        .section {
+            padding: 80px 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .section-title {
+            text-align: center;
+            font-size: 2.5em;
+            color: #1e3a8a;
+            margin-bottom: 20px;
+        }
+        
+        .section-subtitle {
+            text-align: center;
+            font-size: 1.2em;
+            color: #666;
+            margin-bottom: 60px;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+        
+        .service-card {
+            background: white;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+            border-top: 4px solid #1e3a8a;
+        }
+        
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.15);
+        }
+        
+        .service-icon {
+            font-size: 3em;
+            margin-bottom: 20px;
+        }
+        
+        .service-card h3 {
+            color: #1e3a8a;
+            font-size: 1.5em;
+            margin-bottom: 15px;
+        }
+        
+        .service-card p {
+            color: #666;
+            line-height: 1.8;
+        }
+        
+        /* Technologies Section */
+        .tech-section {
+            background: white;
+            padding: 80px 20px;
+        }
+        
+        .tech-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 30px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .tech-item {
+            text-align: center;
+            padding: 20px;
+            background: #f9f9f9;
+            border-radius: 10px;
+            transition: all 0.3s ease;
+        }
+        
+        .tech-item:hover {
+            background: #1e3a8a;
+            color: white;
+            transform: scale(1.05);
+        }
+        
+        .tech-item .icon {
             font-size: 2.5em;
             margin-bottom: 10px;
         }
         
-        .header .subtitle {
-            font-size: 1.2em;
-            opacity: 0.9;
+        .tech-item h4 {
+            font-size: 1em;
+            font-weight: 600;
+        }
+        
+        /* Team Section */
+        .team-section {
+            background: #f9f9f9;
+        }
+        
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 40px;
+            margin-top: 40px;
+        }
+        
+        .team-card {
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+        }
+        
+        .team-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.2);
+        }
+        
+        .team-photo {
+            width: 100%;
+            height: 300px;
+            background: linear-gradient(135deg, #1e3a8a 0%, #1e40af 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 8em;
+            color: white;
+        }
+        
+        .team-info {
+            padding: 30px;
+            text-align: center;
+        }
+        
+        .team-info h3 {
+            color: #1e3a8a;
+            font-size: 1.5em;
+            margin-bottom: 10px;
+        }
+        
+        .team-info .role {
+            color: #666;
+            font-size: 1.1em;
+            margin-bottom: 15px;
+            font-weight: 600;
+        }
+        
+        .team-info p {
+            color: #666;
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+        
+        .team-links {
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+        }
+        
+        .team-link {
+            color: #1e3a8a;
+            text-decoration: none;
+            font-size: 1.5em;
+            transition: all 0.3s ease;
+        }
+        
+        .team-link:hover {
+            transform: scale(1.2);
+        }
+        
+        /* Contact Section */
+        .contact-section {
+            background: linear-gradient(135deg, #1e3a8a 0%, #1e40af 100%);
+            color: white;
+            padding: 80px 20px;
+            text-align: center;
+        }
+        
+        .contact-section h2 {
+            color: white;
             margin-bottom: 20px;
         }
         
         .contact-info {
             display: flex;
+            gap: 40px;
             justify-content: center;
-            gap: 30px;
             flex-wrap: wrap;
-            margin-top: 20px;
+            margin-top: 40px;
+            font-size: 1.2em;
         }
         
         .contact-item {
             display: flex;
             align-items: center;
-            gap: 8px;
+            gap: 10px;
         }
         
-        .content {
-            padding: 40px;
-        }
-        
-        .section {
-            margin-bottom: 35px;
-        }
-        
-        .section-title {
-            font-size: 1.8em;
-            color: #1e3a8a;
-            border-bottom: 3px solid #1e3a8a;
-            padding-bottom: 10px;
-            margin-bottom: 20px;
-        }
-        
-        .profile-text {
-            text-align: justify;
-            line-height: 1.8;
-            color: #555;
-        }
-        
-        .job {
-            margin-bottom: 25px;
-            padding-left: 20px;
-            border-left: 3px solid #e0e0e0;
-        }
-        
-        .job-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: baseline;
-            margin-bottom: 8px;
-            flex-wrap: wrap;
-        }
-        
-        .job-title {
-            font-size: 1.2em;
-            font-weight: bold;
-            color: #333;
-        }
-        
-        .job-date {
-            color: #1e3a8a;
-            font-weight: 600;
-        }
-        
-        .job-company {
-            color: #666;
-            font-style: italic;
-            margin-bottom: 10px;
-        }
-        
-        .job ul {
-            margin-left: 20px;
-            margin-top: 10px;
-        }
-        
-        .job li {
-            margin-bottom: 8px;
-            color: #555;
-        }
-        
-        .education-item {
-            margin-bottom: 20px;
-            padding: 15px;
-            background: #f9f9f9;
-            border-radius: 5px;
-        }
-        
-        .education-title {
-            font-weight: bold;
-            color: #1e3a8a;
-            font-size: 1.1em;
-        }
-        
-        .education-school {
-            color: #666;
-            font-style: italic;
-        }
-        
-        .skills-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 20px;
-        }
-        
-        .skill-category {
-            background: #f9f9f9;
-            padding: 15px;
-            border-radius: 5px;
-            border-left: 4px solid #1e3a8a;
-        }
-        
-        .skill-category h4 {
-            color: #1e3a8a;
-            margin-bottom: 10px;
-        }
-        
-        .skill-category p {
-            color: #555;
-            font-size: 0.95em;
-            line-height: 1.6;
-        }
-        
-        .info-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 20px;
-        }
-        
-        .info-box {
-            background: #f9f9f9;
-            padding: 20px;
-            border-radius: 5px;
-        }
-        
-        .info-box h4 {
-            color: #1e3a8a;
-            margin-bottom: 10px;
-            font-size: 1.1em;
-        }
-        
-        .info-box p, .info-box ul {
-            color: #555;
-            font-size: 0.95em;
-        }
-        
-        .info-box ul {
-            list-style: none;
-            padding: 0;
-        }
-        
-        .info-box li {
-            margin-bottom: 5px;
-        }
-        
-        .references-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 20px;
-        }
-        
-        .reference-card {
-            background: #f9f9f9;
-            padding: 20px;
-            border-radius: 5px;
-            border-left: 4px solid #1e3a8a;
-        }
-        
-        .reference-name {
-            font-weight: bold;
-            color: #1e3a8a;
-            font-size: 1.1em;
-            margin-bottom: 8px;
-        }
-        
-        .reference-phone {
-            color: #666;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-        }
-        
-        .download-btn {
-            position: fixed;
-            top: 20px;
-            right: 20px;
-            background: #1e3a8a;
+        /* Footer */
+        .footer {
+            background: #1a1a1a;
             color: white;
-            padding: 12px 24px;
-            border-radius: 8px;
-            border: none;
-            cursor: pointer;
-            font-size: 1em;
-            font-weight: 600;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-            transition: all 0.3s ease;
-            z-index: 1000;
-            display: flex;
-            align-items: center;
-            gap: 8px;
+            text-align: center;
+            padding: 30px 20px;
         }
         
-        .download-btn:hover {
-            background: #1e40af;
-            transform: translateY(-2px);
-            box-shadow: 0 6px 8px rgba(0,0,0,0.15);
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
         
-        .download-btn:active {
-            transform: translateY(0);
-        }
-        
-        @media print {
-            .download-btn {
-                display: none;
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.5em;
             }
             
-            body {
-                background: white;
-                margin: 0;
-                padding: 0;
-            }
-            
-            .container {
-                box-shadow: none;
-                margin: 0;
-                max-width: 100%;
-            }
-            
-            .header {
-                background: #1e3a8a !important;
-                -webkit-print-color-adjust: exact;
-                print-color-adjust: exact;
-                color: white !important;
-                page-break-after: avoid;
-            }
-            
-            .section {
-                page-break-inside: avoid;
-            }
-            
-            .job {
-                page-break-inside: avoid;
-            }
-            
-            .education-item,
-            .skill-category,
-            .info-box,
-            .reference-card {
-                page-break-inside: avoid;
-                background: #f9f9f9 !important;
-                -webkit-print-color-adjust: exact;
-                print-color-adjust: exact;
+            .hero .tagline {
+                font-size: 1.2em;
             }
             
             .section-title {
-                color: #1e3a8a !important;
-                border-bottom: 3px solid #1e3a8a !important;
-                -webkit-print-color-adjust: exact;
-                print-color-adjust: exact;
-                page-break-after: avoid;
-            }
-            
-            .job-date {
-                color: #1e3a8a !important;
-                -webkit-print-color-adjust: exact;
-                print-color-adjust: exact;
-            }
-            
-            .skill-category,
-            .reference-card {
-                border-left: 4px solid #1e3a8a !important;
-                -webkit-print-color-adjust: exact;
-                print-color-adjust: exact;
-            }
-            
-            h4 {
-                color: #1e3a8a !important;
-                -webkit-print-color-adjust: exact;
-                print-color-adjust: exact;
-            }
-            
-            .content {
-                padding: 20px;
-            }
-        }
-        
-        @media (max-width: 768px) {
-            .header h1 {
                 font-size: 2em;
             }
-            .content {
-                padding: 20px;
-            }
-            .contact-info {
+            
+            .cta-buttons {
                 flex-direction: column;
-                gap: 10px;
+                align-items: center;
+            }
+            
+            .btn {
+                width: 100%;
+                max-width: 300px;
             }
         }
     </style>
 </head>
 <body>
-    <button class="download-btn" onclick="downloadPDF()">
-        📄 Descargar PDF
-    </button>
-    
-    <div class="container">
-        <div class="header">
-            <h1>Roberto Lavagnino</h1>
-            <div class="subtitle">Ingeniero de Datos & Soluciones de IA</div>
-            <div class="contact-info">
-                <div class="contact-item">
-                    <span>📧</span>
-                    <span>roberto.lavagnino@davardata.com</span>
-                </div>
-                <div class="contact-item">
-                    <span>📱</span>
-                    <span>4211-7660</span>
-                </div>
-                <div class="contact-item">
-                    <span>🌐</span>
-                    <span>www.davardata.com</span>
-                </div>
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>DavarData</h1>
+            <div class="tagline">Soluciones Inteligentes en IA y Análisis de Datos</div>
+            <p>
+                Transformamos datos complejos en conocimiento accionable mediante inteligencia artificial avanzada, 
+                machine learning y arquitecturas distribuidas de alto rendimiento.
+            </p>
+            <div class="cta-buttons">
+                <a href="#servicios" class="btn btn-primary">Nuestros Servicios</a>
+                <a href="/rlavagnino" class="btn btn-secondary">Ver CV del Equipo</a>
             </div>
         </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="section" id="servicios">
+        <h2 class="section-title">Servicios Especializados</h2>
+        <p class="section-subtitle">
+            Ofrecemos soluciones completas de inteligencia artificial y análisis de datos 
+            adaptadas a las necesidades específicas de cada cliente
+        </p>
         
-        <div class="content">
-            <div class="section">
-                <h2 class="section-title">Perfil Profesional</h2>
-                <p class="profile-text">
-                    Ingeniero en datos y desarrollador de algoritmos con enfoque en inteligencia analítica y automatización. Experto en transformar grandes volúmenes de información en conocimiento útil mediante modelos de coincidencia, integración semántica y análisis predictivo. He liderado el diseño de sistemas que conectan datos públicos y privados para crear soluciones de inteligencia empresarial, trazabilidad y descubrimiento de patrones. Combino ingeniería, visión estratégica y tecnología avanzada para impulsar decisiones basadas en datos y construir ecosistemas informativos de alto valor.
+        <div class="services-grid">
+            <div class="service-card">
+                <div class="service-icon">🤖</div>
+                <h3>Inteligencia Artificial</h3>
+                <p>
+                    Desarrollo de modelos de deep learning, redes neuronales convolucionales (CNNs) 
+                    y sistemas de detección automatizada para análisis de video, imagen y comportamiento.
                 </p>
             </div>
             
-            <div class="section">
-                <h2 class="section-title">Experiencia Profesional</h2>
-                
-                <div class="job">
-                    <div class="job-header">
-                        <div class="job-title">Ingeniero de Soluciones de IA y DBA</div>
-                        <div class="job-date">2024 - Actualidad</div>
-                    </div>
-                    <div class="job-company">Dirección de Análisis Criminal | DavarData</div>
-                    <ul>
-                        <li>Diseño e implementación de soluciones de inteligencia artificial, análisis automatizado y administración avanzada de bases de datos</li>
-                        <li>Administración y optimización de entornos <strong>Elasticsearch</strong> y <strong>MongoDB</strong>, con enfoque en rendimiento, indexación y consultas analíticas de alto volumen</li>
-                        <li>Desarrollo de <strong>redes neuronales convolucionales (CNNs)</strong> aplicadas a la identificación automática de hechos violentos en videos y detección de comportamientos anómalos</li>
-                        <li>Implementación de arquitecturas <strong>Docker</strong> y <strong>Kubernetes</strong> para el despliegue escalable de modelos de IA y pipelines de procesamiento</li>
-                        <li>Diseño de sistemas de indexación inteligente y correlación semántica de entidades para análisis predictivo y búsqueda avanzada</li>
-                        <li>Creación de soluciones de integración de datos en tiempo real orientadas a la inteligencia operativa y estratégica</li>
-                    </ul>
-                </div>
-                
-                <div class="job">
-                    <div class="job-header">
-                        <div class="job-title">Catedrático</div>
-                        <div class="job-date">2022 - 2025</div>
-                    </div>
-                    <div class="job-company">Universidad Panamericana</div>
-                    <ul>
-                        <li>Impartió cursos de Base de Datos, Inteligencia Artificial y Ciencias de Datos</li>
-                    </ul>
-                </div>
-                
-                <div class="job">
-                    <div class="job-header">
-                        <div class="job-title">Científico de Datos</div>
-                        <div class="job-date">2022 - 2023</div>
-                    </div>
-                    <div class="job-company">Dirección de Análisis Criminal</div>
-                    <ul>
-                        <li>Desarrollo de soluciones inteligentes para la optimización del procesamiento de información criminal</li>
-                        <li>Diseño de sistemas de inteligencia artificial para la recopilación, análisis y presentación de datos sensibles</li>
-                        <li>Implementación de modelos de análisis predictivo y detección de patrones en grandes volúmenes de información</li>
-                        <li>Elaboración de informes estratégicos basados en hallazgos analíticos y visualización de datos</li>
-                    </ul>
-                </div>
-                
-                <div class="job">
-                    <div class="job-header">
-                        <div class="job-title">Analista de Procesos</div>
-                        <div class="job-date">2020 - 2022</div>
-                    </div>
-                    <div class="job-company">Dirección de Análisis Criminal</div>
-                    <ul>
-                        <li>Revisión e ingeniería de reversa de procedimientos operativos internos</li>
-                        <li>Documentación y creación de manuales de procesos institucionales</li>
-                        <li>Optimización de flujos administrativos mediante automatización y rediseño de procesos</li>
-                    </ul>
-                </div>
-                
-                <div class="job">
-                    <div class="job-header">
-                        <div class="job-title">Coordinador del Área de Desarrollo</div>
-                        <div class="job-date">2018 - 2020</div>
-                    </div>
-                    <div class="job-company">Departamento de Tecnología y Seguridad de la Información</div>
-                    <ul>
-                        <li>Responsable del diseño y coordinación de proyectos de desarrollo tecnológico para la Dirección de Análisis Criminal del Ministerio Público</li>
-                        <li>Coordinación y seguimiento de proyectos con Teams, GitHub y Jira</li>
-                        <li>Desarrollo del sistema móvil de control de inventario e incidentes en Node.js e Ionic/AngularJS</li>
-                    </ul>
-                </div>
-                
-                <div class="job">
-                    <div class="job-header">
-                        <div class="job-title">Desarrollador de Bases de Datos</div>
-                        <div class="job-date">2012 - 2017</div>
-                    </div>
-                    <div class="job-company">Departamento de Tecnología y Seguridad de la Información</div>
-                    <ul>
-                        <li>Desarrollo, implementación y mantenimiento de sistemas de análisis audiovisual en WPF/C#</li>
-                        <li>Creación del sistema informático de la Dirección de Análisis Criminal en ASPX</li>
-                        <li>Desarrollo del sistema de tickets institucional en WPF/C#</li>
-                    </ul>
-                </div>
+            <div class="service-card">
+                <div class="service-icon">📊</div>
+                <h3>Análisis de Datos</h3>
+                <p>
+                    Procesamiento y análisis de grandes volúmenes de información mediante técnicas avanzadas 
+                    de data science, análisis predictivo y visualización interactiva.
+                </p>
             </div>
             
-            <div class="section">
-                <h2 class="section-title">Educación</h2>
-                
-                <div class="education-item">
-                    <div class="education-title">Maestría en Gestión Industrial</div>
-                    <div class="education-school">Universidad Rafael Landívar</div>
-                </div>
-                
-                <div class="education-item">
-                    <div class="education-title">Ingeniería en Sistemas y Tecnologías de la Información y Comunicación</div>
-                    <div class="education-school">Universidad Panamericana</div>
-                </div>
-                
-                <div class="education-item">
-                    <div class="education-title">Bachiller en Ciencias y Letras</div>
-                    <div class="education-school">Liceo Guatemala</div>
-                </div>
+            <div class="service-card">
+                <div class="service-icon">🗄️</div>
+                <h3>Administración de Bases de Datos</h3>
+                <p>
+                    Optimización y gestión de sistemas NoSQL (MongoDB, Elasticsearch) y SQL (PostgreSQL, MSSQL) 
+                    con enfoque en rendimiento y escalabilidad.
+                </p>
             </div>
             
-            <div class="section">
-                <h2 class="section-title">Competencias Técnicas</h2>
-                <div class="skills-grid">
-                    <div class="skill-category">
-                        <h4>Bases de Datos NoSQL</h4>
-                        <p>MongoDB, Elasticsearch, CosmoDB, Cassandra</p>
-                    </div>
-                    <div class="skill-category">
-                        <h4>Bases de Datos SQL</h4>
-                        <p>PostgreSQL, MariaDB, MSSQL</p>
-                    </div>
-                    <div class="skill-category">
-                        <h4>Backend Development</h4>
-                        <p>Node.js, Python, C++, C#, Rust, Deno.js, R</p>
-                    </div>
-                    <div class="skill-category">
-                        <h4>Frontend Development</h4>
-                        <p>AngularJS, Vue.js, Ionic, Flutter, WPF, React</p>
-                    </div>
-                    <div class="skill-category">
-                        <h4>IA & Machine Learning</h4>
-                        <p>TensorFlow, PySpark, Deep Learning, CNNs</p>
-                    </div>
-                    <div class="skill-category">
-                        <h4>DevOps & Cloud</h4>
-                        <p>Docker, Kubernetes, CI/CD</p>
-                    </div>
-                    <div class="skill-category">
-                        <h4>Gestión de Proyectos</h4>
-                        <p>Jira, ClickUp, Microsoft Project, GitHub</p>
-                    </div>
-                    <div class="skill-category">
-                        <h4>Análisis & Visualización</h4>
-                        <p>Power BI, Tableau, D3.js, Análisis Predictivo</p>
-                    </div>
-                </div>
+            <div class="service-card">
+                <div class="service-icon">🔍</div>
+                <h3>Correlación de Entidades</h3>
+                <p>
+                    Diseño de sistemas de indexación inteligente y correlación semántica para 
+                    descubrimiento de patrones y análisis de relaciones complejas.
+                </p>
             </div>
             
-            <div class="section">
-                <h2 class="section-title">Información Adicional</h2>
-                <div class="info-grid">
-                    <div class="info-box">
-                        <h4>Idiomas</h4>
-                        <ul>
-                            <li>Español - Nativo</li>
-                            <li>Inglés - Avanzado</li>
-                        </ul>
-                    </div>
-                    <div class="info-box">
-                        <h4>Aptitudes Clave</h4>
-                        <p>Inteligencia artificial aplicada, análisis de datos a gran escala, diseño de algoritmos, desarrollo de sistemas distribuidos, aprendizaje profundo, procesamiento de información, automatización de procesos, correlación de entidades, visualización avanzada de datos</p>
-                    </div>
-                    <div class="info-box">
-                        <h4>Intereses</h4>
-                        <p>Tecnología e inteligencia artificial, lectura de ciencia y filosofía, videojuegos estratégicos, música y deportes al aire libre</p>
-                    </div>
-                </div>
+            <div class="service-card">
+                <div class="service-icon">☁️</div>
+                <h3>Arquitecturas Cloud</h3>
+                <p>
+                    Implementación de soluciones escalables con Docker, Kubernetes y CI/CD 
+                    para despliegue de modelos de IA y pipelines de procesamiento.
+                </p>
             </div>
             
-            <div class="section">
-                <h2 class="section-title">Referencias Profesionales</h2>
-                <div class="references-grid">
-                    <div class="reference-card">
-                        <div class="reference-name">Ing. Carlos Maddaleno</div>
-                        <div class="reference-phone">📞 30300334</div>
-                    </div>
-                    <div class="reference-card">
-                        <div class="reference-name">Ing. Ismael Ruiz</div>
-                        <div class="reference-phone">📞 37625881</div>
-                    </div>
-                    <div class="reference-card">
-                        <div class="reference-name">Ing. Elder Herrera</div>
-                        <div class="reference-phone">📞 55725872</div>
-                    </div>
-                    <div class="reference-card">
-                        <div class="reference-name">Ing. Stuardo del Aguila</div>
-                        <div class="reference-phone">📞 53171180</div>
+            <div class="service-card">
+                <div class="service-icon">⚡</div>
+                <h3>Integración en Tiempo Real</h3>
+                <p>
+                    Desarrollo de sistemas de integración de datos en tiempo real orientados 
+                    a inteligencia operativa y toma de decisiones estratégicas.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Technologies Section -->
+    <section class="tech-section">
+        <div class="section">
+            <h2 class="section-title">Stack Tecnológico</h2>
+            <p class="section-subtitle">
+                Trabajamos con las tecnologías más avanzadas y robustas del mercado
+            </p>
+            
+            <div class="tech-grid">
+                <div class="tech-item">
+                    <div class="icon">🐍</div>
+                    <h4>Python</h4>
+                </div>
+                <div class="tech-item">
+                    <div class="icon">🟢</div>
+                    <h4>Node.js</h4>
+                </div>
+                <div class="tech-item">
+                    <div class="icon">🧠</div>
+                    <h4>TensorFlow</h4>
+                </div>
+                <div class="tech-item">
+                    <div class="icon">🔥</div>
+                    <h4>PyTorch</h4>
+                </div>
+                <div class="tech-item">
+                    <div class="icon">🍃</div>
+                    <h4>MongoDB</h4>
+                </div>
+                <div class="tech-item">
+                    <div class="icon">🔍</div>
+                    <h4>Elasticsearch</h4>
+                </div>
+                <div class="tech-item">
+                    <div class="icon">🐘</div>
+                    <h4>PostgreSQL</h4>
+                </div>
+                <div class="tech-item">
+                    <div class="icon">🐳</div>
+                    <h4>Docker</h4>
+                </div>
+                <div class="tech-item">
+                    <div class="icon">☸️</div>
+                    <h4>Kubernetes</h4>
+                </div>
+                <div class="tech-item">
+                    <div class="icon">⚛️</div>
+                    <h4>React</h4>
+                </div>
+                <div class="tech-item">
+                    <div class="icon">💚</div>
+                    <h4>Vue.js</h4>
+                </div>
+                <div class="tech-item">
+                    <div class="icon">🦀</div>
+                    <h4>Rust</h4>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Team Section -->
+    <section class="section team-section">
+        <h2 class="section-title">Nuestro Equipo</h2>
+        <p class="section-subtitle">
+            Expertos en inteligencia artificial, análisis de datos y desarrollo de software
+        </p>
+        
+        <div class="team-grid">
+            <div class="team-card">
+                <div class="team-photo">👨‍💻</div>
+                <div class="team-info">
+                    <h3>Roberto Lavagnino</h3>
+                    <div class="role">Ingeniero de Soluciones de IA y DBA</div>
+                    <p>
+                        Ingeniero en datos con maestría en Gestión Industrial. Especialista en IA, 
+                        deep learning y arquitecturas distribuidas. Más de 15 años de experiencia 
+                        en desarrollo de sistemas inteligentes y análisis de datos.
+                    </p>
+                    <div class="team-links">
+                        <a href="mailto:roberto.lavagnino@davardata.com" class="team-link">📧</a>
+                        <a href="/rlavagnino" class="team-link">📄</a>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
-    
-    <script>
-        function downloadPDF() {
-            window.print();
-        }
-    </script>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact-section">
+        <h2>¿Listo para transformar tus datos?</h2>
+        <p style="font-size: 1.2em; margin-bottom: 20px;">
+            Contáctanos y descubre cómo podemos ayudarte a crear soluciones inteligentes
+        </p>
+        <div class="contact-info">
+            <div class="contact-item">
+                <span>📧</span>
+                <span>roberto.lavagnino@davardata.com</span>
+            </div>
+            <div class="contact-item">
+                <span>🌐</span>
+                <span>www.davardata.com</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <p>&copy; 2024 DavarData - Soluciones de Inteligencia Artificial y Datos</p>
+        <p style="margin-top: 10px; opacity: 0.7;">Transformando datos en conocimiento</p>
+    </footer>
 </body>
 </html>
