@@ -1,0 +1,463 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CV - Roberto Lavagnino</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: #f5f5f5;
+        }
+        
+        .container {
+            max-width: 900px;
+            margin: 20px auto;
+            background: white;
+            box-shadow: 0 0 20px rgba(0,0,0,0.1);
+        }
+        
+        .header {
+            background: linear-gradient(135deg, #1e3a8a 0%, #1e40af 100%);
+            color: white;
+            padding: 40px;
+            text-align: center;
+        }
+        
+        .header h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+        }
+        
+        .header .subtitle {
+            font-size: 1.2em;
+            opacity: 0.9;
+            margin-bottom: 20px;
+        }
+        
+        .contact-info {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            flex-wrap: wrap;
+            margin-top: 20px;
+        }
+        
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .content {
+            padding: 40px;
+        }
+        
+        .section {
+            margin-bottom: 35px;
+        }
+        
+        .section-title {
+            font-size: 1.8em;
+            color: #1e3a8a;
+            border-bottom: 3px solid #1e3a8a;
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+        }
+        
+        .profile-text {
+            text-align: justify;
+            line-height: 1.8;
+            color: #555;
+        }
+        
+        .job {
+            margin-bottom: 25px;
+            padding-left: 20px;
+            border-left: 3px solid #e0e0e0;
+        }
+        
+        .job-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            margin-bottom: 8px;
+            flex-wrap: wrap;
+        }
+        
+        .job-title {
+            font-size: 1.2em;
+            font-weight: bold;
+            color: #333;
+        }
+        
+        .job-date {
+            color: #1e3a8a;
+            font-weight: 600;
+        }
+        
+        .job-company {
+            color: #666;
+            font-style: italic;
+            margin-bottom: 10px;
+        }
+        
+        .job ul {
+            margin-left: 20px;
+            margin-top: 10px;
+        }
+        
+        .job li {
+            margin-bottom: 8px;
+            color: #555;
+        }
+        
+        .education-item {
+            margin-bottom: 20px;
+            padding: 15px;
+            background: #f9f9f9;
+            border-radius: 5px;
+        }
+        
+        .education-title {
+            font-weight: bold;
+            color: #1e3a8a;
+            font-size: 1.1em;
+        }
+        
+        .education-school {
+            color: #666;
+            font-style: italic;
+        }
+        
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+        
+        .skill-category {
+            background: #f9f9f9;
+            padding: 15px;
+            border-radius: 5px;
+            border-left: 4px solid #1e3a8a;
+        }
+        
+        .skill-category h4 {
+            color: #1e3a8a;
+            margin-bottom: 10px;
+        }
+        
+        .skill-category p {
+            color: #555;
+            font-size: 0.95em;
+            line-height: 1.6;
+        }
+        
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+        
+        .info-box {
+            background: #f9f9f9;
+            padding: 20px;
+            border-radius: 5px;
+        }
+        
+        .info-box h4 {
+            color: #1e3a8a;
+            margin-bottom: 10px;
+            font-size: 1.1em;
+        }
+        
+        .info-box p, .info-box ul {
+            color: #555;
+            font-size: 0.95em;
+        }
+        
+        .info-box ul {
+            list-style: none;
+            padding: 0;
+        }
+        
+        .info-box li {
+            margin-bottom: 5px;
+        }
+        
+        .references-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+        }
+        
+        .reference-card {
+            background: #f9f9f9;
+            padding: 20px;
+            border-radius: 5px;
+            border-left: 4px solid #1e3a8a;
+        }
+        
+        .reference-name {
+            font-weight: bold;
+            color: #1e3a8a;
+            font-size: 1.1em;
+            margin-bottom: 8px;
+        }
+        
+        .reference-phone {
+            color: #666;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        @media print {
+            body {
+                background: white;
+            }
+            .container {
+                box-shadow: none;
+                margin: 0;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .header h1 {
+                font-size: 2em;
+            }
+            .content {
+                padding: 20px;
+            }
+            .contact-info {
+                flex-direction: column;
+                gap: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>Roberto Lavagnino</h1>
+            <div class="subtitle">Ingeniero de Datos & Soluciones de IA</div>
+            <div class="contact-info">
+                <div class="contact-item">
+                    <span>📧</span>
+                    <span>roberto.lavagnino@davardata.com</span>
+                </div>
+                <div class="contact-item">
+                    <span>📱</span>
+                    <span>4211-7660</span>
+                </div>
+                <div class="contact-item">
+                    <span>🌐</span>
+                    <span>www.davardata.com</span>
+                </div>
+            </div>
+        </div>
+        
+        <div class="content">
+            <div class="section">
+                <h2 class="section-title">Perfil Profesional</h2>
+                <p class="profile-text">
+                    Ingeniero en datos y desarrollador de algoritmos con enfoque en inteligencia analítica y automatización. Experto en transformar grandes volúmenes de información en conocimiento útil mediante modelos de coincidencia, integración semántica y análisis predictivo. He liderado el diseño de sistemas que conectan datos públicos y privados para crear soluciones de inteligencia empresarial, trazabilidad y descubrimiento de patrones. Combino ingeniería, visión estratégica y tecnología avanzada para impulsar decisiones basadas en datos y construir ecosistemas informativos de alto valor.
+                </p>
+            </div>
+            
+            <div class="section">
+                <h2 class="section-title">Experiencia Profesional</h2>
+                
+                <div class="job">
+                    <div class="job-header">
+                        <div class="job-title">Ingeniero de Soluciones de IA y DBA</div>
+                        <div class="job-date">2024 - Actualidad</div>
+                    </div>
+                    <div class="job-company">Dirección de Análisis Criminal | DavarData</div>
+                    <ul>
+                        <li>Diseño e implementación de soluciones de inteligencia artificial, análisis automatizado y administración avanzada de bases de datos</li>
+                        <li>Administración y optimización de entornos <strong>Elasticsearch</strong> y <strong>MongoDB</strong>, con enfoque en rendimiento, indexación y consultas analíticas de alto volumen</li>
+                        <li>Desarrollo de <strong>redes neuronales convolucionales (CNNs)</strong> aplicadas a la identificación automática de hechos violentos en videos y detección de comportamientos anómalos</li>
+                        <li>Implementación de arquitecturas <strong>Docker</strong> y <strong>Kubernetes</strong> para el despliegue escalable de modelos de IA y pipelines de procesamiento</li>
+                        <li>Diseño de sistemas de indexación inteligente y correlación semántica de entidades para análisis predictivo y búsqueda avanzada</li>
+                        <li>Creación de soluciones de integración de datos en tiempo real orientadas a la inteligencia operativa y estratégica</li>
+                    </ul>
+                </div>
+                
+                <div class="job">
+                    <div class="job-header">
+                        <div class="job-title">Catedrático</div>
+                        <div class="job-date">2022 - 2025</div>
+                    </div>
+                    <div class="job-company">Universidad Panamericana</div>
+                    <ul>
+                        <li>Impartió cursos de Base de Datos, Inteligencia Artificial y Ciencias de Datos</li>
+                    </ul>
+                </div>
+                
+                <div class="job">
+                    <div class="job-header">
+                        <div class="job-title">Científico de Datos</div>
+                        <div class="job-date">2022 - 2023</div>
+                    </div>
+                    <div class="job-company">Dirección de Análisis Criminal</div>
+                    <ul>
+                        <li>Desarrollo de soluciones inteligentes para la optimización del procesamiento de información criminal</li>
+                        <li>Diseño de sistemas de inteligencia artificial para la recopilación, análisis y presentación de datos sensibles</li>
+                        <li>Implementación de modelos de análisis predictivo y detección de patrones en grandes volúmenes de información</li>
+                        <li>Elaboración de informes estratégicos basados en hallazgos analíticos y visualización de datos</li>
+                    </ul>
+                </div>
+                
+                <div class="job">
+                    <div class="job-header">
+                        <div class="job-title">Analista de Procesos</div>
+                        <div class="job-date">2020 - 2022</div>
+                    </div>
+                    <div class="job-company">Dirección de Análisis Criminal</div>
+                    <ul>
+                        <li>Revisión e ingeniería de reversa de procedimientos operativos internos</li>
+                        <li>Documentación y creación de manuales de procesos institucionales</li>
+                        <li>Optimización de flujos administrativos mediante automatización y rediseño de procesos</li>
+                    </ul>
+                </div>
+                
+                <div class="job">
+                    <div class="job-header">
+                        <div class="job-title">Coordinador del Área de Desarrollo</div>
+                        <div class="job-date">2018 - 2020</div>
+                    </div>
+                    <div class="job-company">Departamento de Tecnología y Seguridad de la Información</div>
+                    <ul>
+                        <li>Responsable del diseño y coordinación de proyectos de desarrollo tecnológico para la Dirección de Análisis Criminal del Ministerio Público</li>
+                        <li>Coordinación y seguimiento de proyectos con Teams, GitHub y Jira</li>
+                        <li>Desarrollo del sistema móvil de control de inventario e incidentes en Node.js e Ionic/AngularJS</li>
+                    </ul>
+                </div>
+                
+                <div class="job">
+                    <div class="job-header">
+                        <div class="job-title">Desarrollador de Bases de Datos</div>
+                        <div class="job-date">2012 - 2017</div>
+                    </div>
+                    <div class="job-company">Departamento de Tecnología y Seguridad de la Información</div>
+                    <ul>
+                        <li>Desarrollo, implementación y mantenimiento de sistemas de análisis audiovisual en WPF/C#</li>
+                        <li>Creación del sistema informático de la Dirección de Análisis Criminal en ASPX</li>
+                        <li>Desarrollo del sistema de tickets institucional en WPF/C#</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="section">
+                <h2 class="section-title">Educación</h2>
+                
+                <div class="education-item">
+                    <div class="education-title">Maestría en Gestión Industrial</div>
+                    <div class="education-school">Universidad Rafael Landívar</div>
+                </div>
+                
+                <div class="education-item">
+                    <div class="education-title">Ingeniería en Sistemas y Tecnologías de la Información y Comunicación</div>
+                    <div class="education-school">Universidad Panamericana</div>
+                </div>
+                
+                <div class="education-item">
+                    <div class="education-title">Bachiller en Ciencias y Letras</div>
+                    <div class="education-school">Liceo Guatemala</div>
+                </div>
+            </div>
+            
+            <div class="section">
+                <h2 class="section-title">Competencias Técnicas</h2>
+                <div class="skills-grid">
+                    <div class="skill-category">
+                        <h4>Bases de Datos NoSQL</h4>
+                        <p>MongoDB, Elasticsearch, CosmoDB, Cassandra</p>
+                    </div>
+                    <div class="skill-category">
+                        <h4>Bases de Datos SQL</h4>
+                        <p>PostgreSQL, MariaDB, MSSQL</p>
+                    </div>
+                    <div class="skill-category">
+                        <h4>Backend Development</h4>
+                        <p>Node.js, Python, C++, C#, Rust, Deno.js, R</p>
+                    </div>
+                    <div class="skill-category">
+                        <h4>Frontend Development</h4>
+                        <p>AngularJS, Vue.js, Ionic, Flutter, WPF, React</p>
+                    </div>
+                    <div class="skill-category">
+                        <h4>IA & Machine Learning</h4>
+                        <p>TensorFlow, PySpark, Deep Learning, CNNs</p>
+                    </div>
+                    <div class="skill-category">
+                        <h4>DevOps & Cloud</h4>
+                        <p>Docker, Kubernetes, CI/CD</p>
+                    </div>
+                    <div class="skill-category">
+                        <h4>Gestión de Proyectos</h4>
+                        <p>Jira, ClickUp, Microsoft Project, GitHub</p>
+                    </div>
+                    <div class="skill-category">
+                        <h4>Análisis & Visualización</h4>
+                        <p>Power BI, Tableau, D3.js, Análisis Predictivo</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="section">
+                <h2 class="section-title">Información Adicional</h2>
+                <div class="info-grid">
+                    <div class="info-box">
+                        <h4>Idiomas</h4>
+                        <ul>
+                            <li>Español - Nativo</li>
+                            <li>Inglés - Avanzado</li>
+                        </ul>
+                    </div>
+                    <div class="info-box">
+                        <h4>Aptitudes Clave</h4>
+                        <p>Inteligencia artificial aplicada, análisis de datos a gran escala, diseño de algoritmos, desarrollo de sistemas distribuidos, aprendizaje profundo, procesamiento de información, automatización de procesos, correlación de entidades, visualización avanzada de datos</p>
+                    </div>
+                    <div class="info-box">
+                        <h4>Intereses</h4>
+                        <p>Tecnología e inteligencia artificial, lectura de ciencia y filosofía, videojuegos estratégicos, música y deportes al aire libre</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="section">
+                <h2 class="section-title">Referencias Profesionales</h2>
+                <div class="references-grid">
+                    <div class="reference-card">
+                        <div class="reference-name">Ing. Carlos Maddaleno</div>
+                        <div class="reference-phone">📞 30300334</div>
+                    </div>
+                    <div class="reference-card">
+                        <div class="reference-name">Ing. Ismael Ruiz</div>
+                        <div class="reference-phone">📞 37625881</div>
+                    </div>
+                    <div class="reference-card">
+                        <div class="reference-name">Ing. Elder Herrera</div>
+                        <div class="reference-phone">📞 55725872</div>
+                    </div>
+                    <div class="reference-card">
+                        <div class="reference-name">Ing. Stuardo del Aguila</div>
+                        <div class="reference-phone">📞 53171180</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
