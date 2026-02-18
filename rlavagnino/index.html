@@ -3,566 +3,639 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CV - Roberto Lavagnino</title>
+    <title>Roberto Lavagnino — CV</title>
+    <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=IBM+Plex+Sans:wght@300;400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
+        :root {
+            --ink: #0d1117;
+            --ink-soft: #3d4a5c;
+            --accent: #1a3a8f;
+            --rule: #d0d7e3;
+            --bg: #f7f8fc;
+            --bg-alt: #eef0f6;
+            --white: #ffffff;
+            --muted: #6b7a96;
         }
-        
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-family: 'IBM Plex Sans', sans-serif;
+            background: var(--bg);
+            color: var(--ink);
+            font-size: 15px;
             line-height: 1.6;
-            color: #333;
-            background: #f5f5f5;
         }
-        
-        .container {
-            max-width: 900px;
-            margin: 20px auto;
-            background: white;
-            box-shadow: 0 0 20px rgba(0,0,0,0.1);
-        }
-        
-        .header {
-            background: linear-gradient(135deg, #1e3a8a 0%, #1e40af 100%);
+
+        /* ── PRINT BUTTON ── */
+        .print-btn {
+            position: fixed;
+            top: 24px;
+            right: 24px;
+            z-index: 100;
+            background: var(--accent);
             color: white;
-            padding: 40px;
-            text-align: center;
-        }
-        
-        .header h1 {
-            font-size: 2.5em;
-            margin-bottom: 10px;
-        }
-        
-        .header .subtitle {
-            font-size: 1.2em;
-            opacity: 0.9;
-            margin-bottom: 20px;
-        }
-        
-        .contact-info {
-            display: flex;
-            justify-content: center;
-            gap: 30px;
-            flex-wrap: wrap;
-            margin-top: 20px;
-        }
-        
-        .contact-item {
+            border: none;
+            padding: 10px 22px;
+            border-radius: 4px;
+            font-family: 'IBM Plex Sans', sans-serif;
+            font-size: 0.82rem;
+            font-weight: 500;
+            cursor: pointer;
             display: flex;
             align-items: center;
             gap: 8px;
+            letter-spacing: 0.02em;
+            transition: background 0.15s;
         }
-        
-        .content {
-            padding: 40px;
+
+        .print-btn:hover { background: #2952c4; }
+
+        /* ── WRAPPER ── */
+        .cv {
+            max-width: 860px;
+            margin: 40px auto;
+            background: var(--white);
+            border: 1px solid var(--rule);
         }
-        
+
+        /* ── HEADER ── */
+        .cv-header {
+            display: grid;
+            grid-template-columns: 1fr auto;
+            gap: 40px;
+            align-items: end;
+            padding: 52px 52px 40px;
+            border-bottom: 1px solid var(--rule);
+        }
+
+        .header-kicker {
+            font-family: 'IBM Plex Mono', monospace;
+            font-size: 0.68rem;
+            letter-spacing: 0.14em;
+            text-transform: uppercase;
+            color: var(--accent);
+            margin-bottom: 14px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .header-kicker::before {
+            content: '';
+            display: inline-block;
+            width: 20px;
+            height: 1px;
+            background: var(--accent);
+        }
+
+        .cv-header h1 {
+            font-family: 'Libre Baskerville', serif;
+            font-size: 2.6rem;
+            font-weight: 700;
+            letter-spacing: -0.02em;
+            color: var(--ink);
+            line-height: 1.1;
+        }
+
+        .header-contact {
+            text-align: right;
+        }
+
+        .contact-row {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            justify-content: flex-end;
+            margin-bottom: 8px;
+            font-size: 0.82rem;
+            color: var(--ink-soft);
+        }
+
+        .contact-row .label {
+            font-family: 'IBM Plex Mono', monospace;
+            font-size: 0.65rem;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: var(--muted);
+            margin-right: 4px;
+        }
+
+        /* ── BODY LAYOUT ── */
+        .cv-body {
+            display: grid;
+            grid-template-columns: 1fr 220px;
+            gap: 0;
+        }
+
+        .cv-main {
+            border-right: 1px solid var(--rule);
+            padding: 0;
+        }
+
+        .cv-aside {
+            padding: 0;
+        }
+
+        /* ── SECTION ── */
         .section {
-            margin-bottom: 35px;
+            padding: 36px 52px;
+            border-bottom: 1px solid var(--rule);
         }
-        
-        .section-title {
-            font-size: 1.8em;
-            color: #1e3a8a;
-            border-bottom: 3px solid #1e3a8a;
-            padding-bottom: 10px;
+
+        .aside-section {
+            padding: 32px 28px;
+            border-bottom: 1px solid var(--rule);
+        }
+
+        .section:last-child,
+        .aside-section:last-child {
+            border-bottom: none;
+        }
+
+        .section-kicker {
+            font-family: 'IBM Plex Mono', monospace;
+            font-size: 0.65rem;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            color: var(--muted);
             margin-bottom: 20px;
         }
-        
+
+        .section-title {
+            font-family: 'Libre Baskerville', serif;
+            font-size: 1.05rem;
+            font-weight: 700;
+            color: var(--ink);
+            margin-bottom: 20px;
+            letter-spacing: -0.01em;
+        }
+
+        /* ── PROFILE ── */
         .profile-text {
-            text-align: justify;
-            line-height: 1.8;
-            color: #555;
+            font-size: 0.9rem;
+            color: var(--ink-soft);
+            line-height: 1.85;
+            font-weight: 300;
         }
-        
+
+        /* ── JOBS ── */
         .job {
-            margin-bottom: 25px;
-            padding-left: 20px;
-            border-left: 3px solid #e0e0e0;
+            margin-bottom: 32px;
+            padding-bottom: 32px;
+            border-bottom: 1px solid var(--rule);
         }
-        
-        .job-header {
+
+        .job:last-child {
+            margin-bottom: 0;
+            padding-bottom: 0;
+            border-bottom: none;
+        }
+
+        .job-meta {
             display: flex;
             justify-content: space-between;
             align-items: baseline;
-            margin-bottom: 8px;
-            flex-wrap: wrap;
+            margin-bottom: 4px;
+            gap: 16px;
         }
-        
+
         .job-title {
-            font-size: 1.2em;
-            font-weight: bold;
-            color: #333;
+            font-family: 'Libre Baskerville', serif;
+            font-size: 0.95rem;
+            font-weight: 700;
+            color: var(--ink);
         }
-        
+
         .job-date {
-            color: #1e3a8a;
-            font-weight: 600;
+            font-family: 'IBM Plex Mono', monospace;
+            font-size: 0.68rem;
+            color: var(--accent);
+            letter-spacing: 0.05em;
+            white-space: nowrap;
         }
-        
+
         .job-company {
-            color: #666;
+            font-size: 0.8rem;
+            color: var(--muted);
             font-style: italic;
-            margin-bottom: 10px;
+            margin-bottom: 12px;
         }
-        
+
         .job ul {
-            margin-left: 20px;
-            margin-top: 10px;
-        }
-        
-        .job li {
-            margin-bottom: 8px;
-            color: #555;
-        }
-        
-        .education-item {
-            margin-bottom: 20px;
-            padding: 15px;
-            background: #f9f9f9;
-            border-radius: 5px;
-        }
-        
-        .education-title {
-            font-weight: bold;
-            color: #1e3a8a;
-            font-size: 1.1em;
-        }
-        
-        .education-school {
-            color: #666;
-            font-style: italic;
-        }
-        
-        .skills-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 20px;
-        }
-        
-        .skill-category {
-            background: #f9f9f9;
-            padding: 15px;
-            border-radius: 5px;
-            border-left: 4px solid #1e3a8a;
-        }
-        
-        .skill-category h4 {
-            color: #1e3a8a;
-            margin-bottom: 10px;
-        }
-        
-        .skill-category p {
-            color: #555;
-            font-size: 0.95em;
-            line-height: 1.6;
-        }
-        
-        .info-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 20px;
-        }
-        
-        .info-box {
-            background: #f9f9f9;
-            padding: 20px;
-            border-radius: 5px;
-        }
-        
-        .info-box h4 {
-            color: #1e3a8a;
-            margin-bottom: 10px;
-            font-size: 1.1em;
-        }
-        
-        .info-box p, .info-box ul {
-            color: #555;
-            font-size: 0.95em;
-        }
-        
-        .info-box ul {
             list-style: none;
             padding: 0;
         }
-        
-        .info-box li {
-            margin-bottom: 5px;
+
+        .job li {
+            font-size: 0.83rem;
+            color: var(--ink-soft);
+            line-height: 1.65;
+            font-weight: 300;
+            margin-bottom: 6px;
+            padding-left: 14px;
+            position: relative;
         }
-        
-        .references-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 20px;
+
+        .job li::before {
+            content: '—';
+            position: absolute;
+            left: 0;
+            color: var(--rule);
+            font-size: 0.7rem;
+            line-height: 1.65;
         }
-        
-        .reference-card {
-            background: #f9f9f9;
-            padding: 20px;
-            border-radius: 5px;
-            border-left: 4px solid #1e3a8a;
+
+        /* ── EDUCATION ── */
+        .edu-item {
+            margin-bottom: 20px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid var(--rule);
         }
-        
-        .reference-name {
-            font-weight: bold;
-            color: #1e3a8a;
-            font-size: 1.1em;
-            margin-bottom: 8px;
+
+        .edu-item:last-child {
+            margin-bottom: 0;
+            padding-bottom: 0;
+            border-bottom: none;
         }
-        
-        .reference-phone {
-            color: #666;
+
+        .edu-degree {
+            font-family: 'Libre Baskerville', serif;
+            font-size: 0.9rem;
+            font-weight: 700;
+            color: var(--ink);
+            margin-bottom: 3px;
+        }
+
+        .edu-school {
+            font-size: 0.8rem;
+            color: var(--muted);
+            font-style: italic;
+        }
+
+        /* ── ASIDE: skills ── */
+        .aside-section .section-kicker {
+            margin-bottom: 16px;
+        }
+
+        .skill-group {
+            margin-bottom: 18px;
+        }
+
+        .skill-group:last-child { margin-bottom: 0; }
+
+        .skill-group-name {
+            font-family: 'IBM Plex Mono', monospace;
+            font-size: 0.65rem;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            color: var(--accent);
+            margin-bottom: 6px;
+        }
+
+        .skill-group p {
+            font-size: 0.78rem;
+            color: var(--ink-soft);
+            line-height: 1.6;
+            font-weight: 300;
+        }
+
+        /* ── ASIDE: languages ── */
+        .lang-item {
             display: flex;
-            align-items: center;
-            gap: 8px;
+            justify-content: space-between;
+            align-items: baseline;
+            margin-bottom: 10px;
+            font-size: 0.8rem;
         }
-        
-        .download-btn {
-            position: fixed;
-            top: 20px;
-            right: 20px;
-            background: #1e3a8a;
-            color: white;
-            padding: 12px 24px;
-            border-radius: 8px;
-            border: none;
-            cursor: pointer;
-            font-size: 1em;
+
+        .lang-name { color: var(--ink); font-weight: 500; }
+
+        .lang-level {
+            font-family: 'IBM Plex Mono', monospace;
+            font-size: 0.65rem;
+            color: var(--muted);
+            letter-spacing: 0.05em;
+        }
+
+        /* ── REFERENCES ── */
+        .ref-item {
+            margin-bottom: 16px;
+            padding-bottom: 16px;
+            border-bottom: 1px solid var(--rule);
+        }
+
+        .ref-item:last-child {
+            margin-bottom: 0;
+            padding-bottom: 0;
+            border-bottom: none;
+        }
+
+        .ref-name {
+            font-size: 0.82rem;
             font-weight: 600;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-            transition: all 0.3s ease;
-            z-index: 1000;
+            color: var(--ink);
+            margin-bottom: 3px;
+        }
+
+        .ref-phone {
+            font-family: 'IBM Plex Mono', monospace;
+            font-size: 0.72rem;
+            color: var(--muted);
+        }
+
+        /* ── FOOTER ── */
+        .cv-footer {
+            padding: 20px 52px;
+            border-top: 1px solid var(--rule);
+            background: var(--bg);
             display: flex;
+            justify-content: space-between;
             align-items: center;
-            gap: 8px;
         }
-        
-        .download-btn:hover {
-            background: #1e40af;
-            transform: translateY(-2px);
-            box-shadow: 0 6px 8px rgba(0,0,0,0.15);
+
+        .cv-footer p {
+            font-family: 'IBM Plex Mono', monospace;
+            font-size: 0.65rem;
+            color: var(--muted);
+            letter-spacing: 0.05em;
         }
-        
-        .download-btn:active {
-            transform: translateY(0);
-        }
-        
+
+        /* ── PRINT ── */
         @media print {
-            .download-btn {
-                display: none;
-            }
-            
-            body {
-                background: white;
-                margin: 0;
-                padding: 0;
-            }
-            
-            .container {
-                box-shadow: none;
-                margin: 0;
-                max-width: 100%;
-            }
-            
-            .header {
-                background: #1e3a8a !important;
-                -webkit-print-color-adjust: exact;
-                print-color-adjust: exact;
-                color: white !important;
-                page-break-after: avoid;
-            }
-            
-            .section {
-                page-break-inside: avoid;
-            }
-            
-            .job {
-                page-break-inside: avoid;
-            }
-            
-            .education-item,
-            .skill-category,
-            .info-box,
-            .reference-card {
-                page-break-inside: avoid;
-                background: #f9f9f9 !important;
-                -webkit-print-color-adjust: exact;
-                print-color-adjust: exact;
-            }
-            
-            .section-title {
-                color: #1e3a8a !important;
-                border-bottom: 3px solid #1e3a8a !important;
-                -webkit-print-color-adjust: exact;
-                print-color-adjust: exact;
-                page-break-after: avoid;
-            }
-            
-            .job-date {
-                color: #1e3a8a !important;
-                -webkit-print-color-adjust: exact;
-                print-color-adjust: exact;
-            }
-            
-            .skill-category,
-            .reference-card {
-                border-left: 4px solid #1e3a8a !important;
-                -webkit-print-color-adjust: exact;
-                print-color-adjust: exact;
-            }
-            
-            h4 {
-                color: #1e3a8a !important;
-                -webkit-print-color-adjust: exact;
-                print-color-adjust: exact;
-            }
-            
-            .content {
-                padding: 20px;
-            }
+            body { background: white; }
+            .print-btn { display: none; }
+            .cv { margin: 0; border: none; max-width: 100%; }
+            .cv-header, .section, .aside-section { padding-left: 36px; padding-right: 36px; }
+            .section { page-break-inside: avoid; }
+            .job { page-break-inside: avoid; }
         }
-        
-        @media (max-width: 768px) {
-            .header h1 {
-                font-size: 2em;
-            }
-            .content {
-                padding: 20px;
-            }
-            .contact-info {
-                flex-direction: column;
-                gap: 10px;
-            }
+
+        /* ── RESPONSIVE ── */
+        @media (max-width: 720px) {
+            .cv { margin: 0; border: none; }
+            .cv-header { grid-template-columns: 1fr; gap: 24px; padding: 32px 24px; }
+            .header-contact { text-align: left; }
+            .contact-row { justify-content: flex-start; }
+            .cv-body { grid-template-columns: 1fr; }
+            .cv-main { border-right: none; }
+            .section, .aside-section { padding: 28px 24px; }
+            .cv-footer { padding: 16px 24px; flex-direction: column; gap: 6px; }
+            .print-btn { top: 12px; right: 12px; }
         }
     </style>
 </head>
 <body>
-    <button class="download-btn" onclick="downloadPDF()">
-        📄 Descargar PDF
-    </button>
-    
-    <div class="container">
-        <div class="header">
-            <h1>Roberto Lavagnino</h1>
-            <div class="subtitle">Ingeniero de Datos & Soluciones de IA</div>
-            <div class="contact-info">
-                <div class="contact-item">
-                    <span>📧</span>
-                    <span>roberto.lavagnino@davardata.com</span>
-                </div>
-                <div class="contact-item">
-                    <span>📱</span>
-                    <span>4211-7660</span>
-                </div>
-                <div class="contact-item">
-                    <span>🌐</span>
-                    <span>www.davardata.com</span>
-                </div>
-            </div>
+
+<button class="print-btn" onclick="window.print()">Descargar PDF</button>
+
+<div class="cv">
+
+    <!-- HEADER -->
+    <div class="cv-header">
+        <div>
+            <div class="header-kicker">Currículum Vitae</div>
+            <h1>Roberto<br>Lavagnino</h1>
         </div>
-        
-        <div class="content">
-            <div class="section">
-                <h2 class="section-title">Perfil Profesional</h2>
-                <p class="profile-text">
-                    Ingeniero en datos y desarrollador de algoritmos con enfoque en inteligencia analítica y automatización. Experto en transformar grandes volúmenes de información en conocimiento útil mediante modelos de coincidencia, integración semántica y análisis predictivo. He liderado el diseño de sistemas que conectan datos públicos y privados para crear soluciones de inteligencia empresarial, trazabilidad y descubrimiento de patrones. Combino ingeniería, visión estratégica y tecnología avanzada para impulsar decisiones basadas en datos y construir ecosistemas informativos de alto valor.
-                </p>
+        <div class="header-contact">
+            <div class="contact-row">
+                <span class="label">Email</span>
+                <span>roberto.lavagnino@davardata.com</span>
             </div>
-            
-            <div class="section">
-                <h2 class="section-title">Experiencia Profesional</h2>
-                
-                <div class="job">
-                    <div class="job-header">
-                        <div class="job-title">Ingeniero de Soluciones de IA y DBA</div>
-                        <div class="job-date">2024 - Actualidad</div>
-                    </div>
-                    <div class="job-company">Dirección de Análisis Criminal | DavarData</div>
-                    <ul>
-                        <li>Diseño e implementación de soluciones de inteligencia artificial, análisis automatizado y administración avanzada de bases de datos</li>
-                        <li>Administración y optimización de entornos <strong>Elasticsearch</strong> y <strong>MongoDB</strong>, con enfoque en rendimiento, indexación y consultas analíticas de alto volumen</li>
-                        <li>Desarrollo de <strong>redes neuronales convolucionales (CNNs)</strong> aplicadas a la identificación automática de hechos violentos en videos y detección de comportamientos anómalos</li>
-                        <li>Implementación de arquitecturas <strong>Docker</strong> y <strong>Kubernetes</strong> para el despliegue escalable de modelos de IA y pipelines de procesamiento</li>
-                        <li>Diseño de sistemas de indexación inteligente y correlación semántica de entidades para análisis predictivo y búsqueda avanzada</li>
-                        <li>Creación de soluciones de integración de datos en tiempo real orientadas a la inteligencia operativa y estratégica</li>
-                    </ul>
-                </div>
-                
-                <div class="job">
-                    <div class="job-header">
-                        <div class="job-title">Catedrático</div>
-                        <div class="job-date">2022 - 2025</div>
-                    </div>
-                    <div class="job-company">Universidad Panamericana</div>
-                    <ul>
-                        <li>Impartió cursos de Base de Datos, Inteligencia Artificial y Ciencias de Datos</li>
-                    </ul>
-                </div>
-                
-                <div class="job">
-                    <div class="job-header">
-                        <div class="job-title">Científico de Datos</div>
-                        <div class="job-date">2022 - 2023</div>
-                    </div>
-                    <div class="job-company">Dirección de Análisis Criminal</div>
-                    <ul>
-                        <li>Desarrollo de soluciones inteligentes para la optimización del procesamiento de información criminal</li>
-                        <li>Diseño de sistemas de inteligencia artificial para la recopilación, análisis y presentación de datos sensibles</li>
-                        <li>Implementación de modelos de análisis predictivo y detección de patrones en grandes volúmenes de información</li>
-                        <li>Elaboración de informes estratégicos basados en hallazgos analíticos y visualización de datos</li>
-                    </ul>
-                </div>
-                
-                <div class="job">
-                    <div class="job-header">
-                        <div class="job-title">Analista de Procesos</div>
-                        <div class="job-date">2020 - 2022</div>
-                    </div>
-                    <div class="job-company">Dirección de Análisis Criminal</div>
-                    <ul>
-                        <li>Revisión e ingeniería de reversa de procedimientos operativos internos</li>
-                        <li>Documentación y creación de manuales de procesos institucionales</li>
-                        <li>Optimización de flujos administrativos mediante automatización y rediseño de procesos</li>
-                    </ul>
-                </div>
-                
-                <div class="job">
-                    <div class="job-header">
-                        <div class="job-title">Coordinador del Área de Desarrollo</div>
-                        <div class="job-date">2018 - 2020</div>
-                    </div>
-                    <div class="job-company">Departamento de Tecnología y Seguridad de la Información</div>
-                    <ul>
-                        <li>Responsable del diseño y coordinación de proyectos de desarrollo tecnológico para la Dirección de Análisis Criminal del Ministerio Público</li>
-                        <li>Coordinación y seguimiento de proyectos con Teams, GitHub y Jira</li>
-                        <li>Desarrollo del sistema móvil de control de inventario e incidentes en Node.js e Ionic/AngularJS</li>
-                    </ul>
-                </div>
-                
-                <div class="job">
-                    <div class="job-header">
-                        <div class="job-title">Desarrollador de Bases de Datos</div>
-                        <div class="job-date">2012 - 2017</div>
-                    </div>
-                    <div class="job-company">Departamento de Tecnología y Seguridad de la Información</div>
-                    <ul>
-                        <li>Desarrollo, implementación y mantenimiento de sistemas de análisis audiovisual en WPF/C#</li>
-                        <li>Creación del sistema informático de la Dirección de Análisis Criminal en ASPX</li>
-                        <li>Desarrollo del sistema de tickets institucional en WPF/C#</li>
-                    </ul>
-                </div>
+            <div class="contact-row">
+                <span class="label">Tel.</span>
+                <span>4211-7660</span>
             </div>
-            
-            <div class="section">
-                <h2 class="section-title">Educación</h2>
-                
-                <div class="education-item">
-                    <div class="education-title">Maestría en Gestión Industrial</div>
-                    <div class="education-school">Universidad Rafael Landívar</div>
-                </div>
-                
-                <div class="education-item">
-                    <div class="education-title">Ingeniería en Sistemas y Tecnologías de la Información y Comunicación</div>
-                    <div class="education-school">Universidad Panamericana</div>
-                </div>
-                
-                <div class="education-item">
-                    <div class="education-title">Bachiller en Ciencias y Letras</div>
-                    <div class="education-school">Liceo Guatemala</div>
-                </div>
-            </div>
-            
-            <div class="section">
-                <h2 class="section-title">Competencias Técnicas</h2>
-                <div class="skills-grid">
-                    <div class="skill-category">
-                        <h4>Bases de Datos NoSQL</h4>
-                        <p>MongoDB, Elasticsearch, CosmoDB, Cassandra</p>
-                    </div>
-                    <div class="skill-category">
-                        <h4>Bases de Datos SQL</h4>
-                        <p>PostgreSQL, MariaDB, MSSQL</p>
-                    </div>
-                    <div class="skill-category">
-                        <h4>Backend Development</h4>
-                        <p>Node.js, Python, C++, C#, Rust, Deno.js, R</p>
-                    </div>
-                    <div class="skill-category">
-                        <h4>Frontend Development</h4>
-                        <p>AngularJS, Vue.js, Ionic, Flutter, WPF, React</p>
-                    </div>
-                    <div class="skill-category">
-                        <h4>IA & Machine Learning</h4>
-                        <p>TensorFlow, PySpark, Deep Learning, CNNs</p>
-                    </div>
-                    <div class="skill-category">
-                        <h4>DevOps & Cloud</h4>
-                        <p>Docker, Kubernetes, CI/CD</p>
-                    </div>
-                    <div class="skill-category">
-                        <h4>Gestión de Proyectos</h4>
-                        <p>Jira, ClickUp, Microsoft Project, GitHub</p>
-                    </div>
-                    <div class="skill-category">
-                        <h4>Análisis & Visualización</h4>
-                        <p>Power BI, Tableau, D3.js, Análisis Predictivo</p>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="section">
-                <h2 class="section-title">Información Adicional</h2>
-                <div class="info-grid">
-                    <div class="info-box">
-                        <h4>Idiomas</h4>
-                        <ul>
-                            <li>Español - Nativo</li>
-                            <li>Inglés - Avanzado</li>
-                        </ul>
-                    </div>
-                    <div class="info-box">
-                        <h4>Aptitudes Clave</h4>
-                        <p>Inteligencia artificial aplicada, análisis de datos a gran escala, diseño de algoritmos, desarrollo de sistemas distribuidos, aprendizaje profundo, procesamiento de información, automatización de procesos, correlación de entidades, visualización avanzada de datos</p>
-                    </div>
-                    <div class="info-box">
-                        <h4>Intereses</h4>
-                        <p>Tecnología e inteligencia artificial, lectura de ciencia y filosofía, videojuegos estratégicos, música y deportes al aire libre</p>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="section">
-                <h2 class="section-title">Referencias Profesionales</h2>
-                <div class="references-grid">
-                    <div class="reference-card">
-                        <div class="reference-name">Ing. Carlos Maddaleno</div>
-                        <div class="reference-phone">📞 30300334</div>
-                    </div>
-                    <div class="reference-card">
-                        <div class="reference-name">Ing. Ismael Ruiz</div>
-                        <div class="reference-phone">📞 37625881</div>
-                    </div>
-                    <div class="reference-card">
-                        <div class="reference-name">Ing. Elder Herrera</div>
-                        <div class="reference-phone">📞 55725872</div>
-                    </div>
-                    <div class="reference-card">
-                        <div class="reference-name">Ing. Stuardo del Aguila</div>
-                        <div class="reference-phone">📞 53171180</div>
-                    </div>
-                </div>
+            <div class="contact-row">
+                <span class="label">Web</span>
+                <span>www.davardata.com</span>
             </div>
         </div>
     </div>
-    
-    <script>
-        function downloadPDF() {
-            window.print();
-        }
-    </script>
+
+    <!-- BODY -->
+    <div class="cv-body">
+
+        <!-- MAIN -->
+        <div class="cv-main">
+
+            <!-- PERFIL -->
+            <div class="section">
+                <div class="section-kicker">Perfil profesional</div>
+                <p class="profile-text">
+                    Ingeniero en datos y desarrollador de algoritmos con enfoque en inteligencia analítica y automatización. Experto en transformar grandes volúmenes de información en conocimiento útil mediante modelos de coincidencia, integración semántica y análisis predictivo. Ha liderado el diseño de sistemas que conectan datos públicos y privados para crear soluciones de inteligencia empresarial, trazabilidad y descubrimiento de patrones. Combina ingeniería, visión estratégica y tecnología avanzada para impulsar decisiones basadas en datos y construir ecosistemas informativos de alto valor.
+                </p>
+            </div>
+
+            <!-- EXPERIENCIA -->
+            <div class="section">
+                <div class="section-kicker">Experiencia profesional</div>
+
+                <div class="job">
+                    <div class="job-meta">
+                        <div class="job-title">Ingeniero de Soluciones de IA & DBA</div>
+                        <div class="job-date">2024 — Actualidad</div>
+                    </div>
+                    <div class="job-company">Dirección de Análisis Criminal · DavarData</div>
+                    <ul>
+                        <li>Diseño e implementación de soluciones de inteligencia artificial, análisis automatizado y administración avanzada de bases de datos.</li>
+                        <li>Administración y optimización de entornos Elasticsearch y MongoDB con enfoque en rendimiento, indexación y consultas analíticas de alto volumen.</li>
+                        <li>Desarrollo de redes neuronales convolucionales (CNNs) para identificación automática de hechos violentos en video y detección de comportamientos anómalos.</li>
+                        <li>Implementación de arquitecturas Docker y Kubernetes para despliegue escalable de modelos de IA y pipelines de procesamiento.</li>
+                        <li>Diseño de sistemas de indexación inteligente y correlación semántica de entidades para análisis predictivo y búsqueda avanzada.</li>
+                        <li>Creación de soluciones de integración de datos en tiempo real orientadas a inteligencia operativa y estratégica.</li>
+                    </ul>
+                </div>
+
+                <div class="job">
+                    <div class="job-meta">
+                        <div class="job-title">Catedrático</div>
+                        <div class="job-date">2022 — 2025</div>
+                    </div>
+                    <div class="job-company">Universidad Panamericana</div>
+                    <ul>
+                        <li>Cursos de Base de Datos, Inteligencia Artificial y Ciencias de Datos a nivel universitario.</li>
+                    </ul>
+                </div>
+
+                <div class="job">
+                    <div class="job-meta">
+                        <div class="job-title">Científico de Datos</div>
+                        <div class="job-date">2022 — 2023</div>
+                    </div>
+                    <div class="job-company">Dirección de Análisis Criminal</div>
+                    <ul>
+                        <li>Desarrollo de soluciones inteligentes para la optimización del procesamiento de información criminal.</li>
+                        <li>Diseño de sistemas de IA para la recopilación, análisis y presentación de datos sensibles.</li>
+                        <li>Implementación de modelos de análisis predictivo y detección de patrones en grandes volúmenes de información.</li>
+                        <li>Elaboración de informes estratégicos basados en hallazgos analíticos y visualización de datos.</li>
+                    </ul>
+                </div>
+
+                <div class="job">
+                    <div class="job-meta">
+                        <div class="job-title">Analista de Procesos</div>
+                        <div class="job-date">2020 — 2022</div>
+                    </div>
+                    <div class="job-company">Dirección de Análisis Criminal</div>
+                    <ul>
+                        <li>Revisión e ingeniería de reversa de procedimientos operativos internos.</li>
+                        <li>Documentación y creación de manuales de procesos institucionales.</li>
+                        <li>Optimización de flujos administrativos mediante automatización y rediseño de procesos.</li>
+                    </ul>
+                </div>
+
+                <div class="job">
+                    <div class="job-meta">
+                        <div class="job-title">Coordinador del Área de Desarrollo</div>
+                        <div class="job-date">2018 — 2020</div>
+                    </div>
+                    <div class="job-company">Departamento de Tecnología y Seguridad de la Información</div>
+                    <ul>
+                        <li>Diseño y coordinación de proyectos de desarrollo tecnológico para la Dirección de Análisis Criminal del Ministerio Público.</li>
+                        <li>Coordinación y seguimiento de proyectos con Teams, GitHub y Jira.</li>
+                        <li>Desarrollo del sistema móvil de control de inventario e incidentes en Node.js e Ionic/AngularJS.</li>
+                    </ul>
+                </div>
+
+                <div class="job">
+                    <div class="job-meta">
+                        <div class="job-title">Desarrollador de Bases de Datos</div>
+                        <div class="job-date">2012 — 2017</div>
+                    </div>
+                    <div class="job-company">Departamento de Tecnología y Seguridad de la Información</div>
+                    <ul>
+                        <li>Desarrollo, implementación y mantenimiento de sistemas de análisis audiovisual en WPF/C#.</li>
+                        <li>Creación del sistema informático de la Dirección de Análisis Criminal en ASPX.</li>
+                        <li>Desarrollo del sistema de tickets institucional en WPF/C#.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- EDUCACIÓN -->
+            <div class="section">
+                <div class="section-kicker">Educación</div>
+
+                <div class="edu-item">
+                    <div class="edu-degree">Maestría en Gestión Industrial</div>
+                    <div class="edu-school">Universidad Rafael Landívar</div>
+                </div>
+
+                <div class="edu-item">
+                    <div class="edu-degree">Ingeniería en Sistemas y Tecnologías de la Información y Comunicación</div>
+                    <div class="edu-school">Universidad Panamericana</div>
+                </div>
+
+                <div class="edu-item">
+                    <div class="edu-degree">Bachiller en Ciencias y Letras</div>
+                    <div class="edu-school">Liceo Guatemala</div>
+                </div>
+            </div>
+
+        </div><!-- /cv-main -->
+
+        <!-- ASIDE -->
+        <div class="cv-aside">
+
+            <!-- COMPETENCIAS -->
+            <div class="aside-section">
+                <div class="section-kicker">Competencias técnicas</div>
+
+                <div class="skill-group">
+                    <div class="skill-group-name">NoSQL</div>
+                    <p>MongoDB, Elasticsearch, CosmoDB, Cassandra</p>
+                </div>
+
+                <div class="skill-group">
+                    <div class="skill-group-name">SQL</div>
+                    <p>PostgreSQL, MariaDB, MSSQL</p>
+                </div>
+
+                <div class="skill-group">
+                    <div class="skill-group-name">Backend</div>
+                    <p>Node.js, Python, C++, C#, Rust, Deno.js, R</p>
+                </div>
+
+                <div class="skill-group">
+                    <div class="skill-group-name">Frontend</div>
+                    <p>AngularJS, Vue.js, Ionic, Flutter, WPF, React</p>
+                </div>
+
+                <div class="skill-group">
+                    <div class="skill-group-name">IA & ML</div>
+                    <p>TensorFlow, PySpark, Deep Learning, CNNs</p>
+                </div>
+
+                <div class="skill-group">
+                    <div class="skill-group-name">DevOps</div>
+                    <p>Docker, Kubernetes, CI/CD</p>
+                </div>
+
+                <div class="skill-group">
+                    <div class="skill-group-name">Proyectos</div>
+                    <p>Jira, ClickUp, MS Project, GitHub</p>
+                </div>
+
+                <div class="skill-group">
+                    <div class="skill-group-name">Visualización</div>
+                    <p>Power BI, Tableau, D3.js</p>
+                </div>
+            </div>
+
+            <!-- IDIOMAS -->
+            <div class="aside-section">
+                <div class="section-kicker">Idiomas</div>
+                <div class="lang-item">
+                    <span class="lang-name">Español</span>
+                    <span class="lang-level">Nativo</span>
+                </div>
+                <div class="lang-item">
+                    <span class="lang-name">Inglés</span>
+                    <span class="lang-level">Avanzado</span>
+                </div>
+            </div>
+
+            <!-- REFERENCIAS -->
+            <div class="aside-section">
+                <div class="section-kicker">Referencias</div>
+
+                <div class="ref-item">
+                    <div class="ref-name">Ing. Carlos Maddaleno</div>
+                    <div class="ref-phone">30300334</div>
+                </div>
+                <div class="ref-item">
+                    <div class="ref-name">Ing. Ismael Ruiz</div>
+                    <div class="ref-phone">37625881</div>
+                </div>
+                <div class="ref-item">
+                    <div class="ref-name">Ing. Elder Herrera</div>
+                    <div class="ref-phone">55725872</div>
+                </div>
+                <div class="ref-item">
+                    <div class="ref-name">Ing. Stuardo del Aguila</div>
+                    <div class="ref-phone">53171180</div>
+                </div>
+            </div>
+
+            <!-- INTERESES -->
+            <div class="aside-section">
+                <div class="section-kicker">Intereses</div>
+                <p style="font-size:0.78rem; color:var(--ink-soft); line-height:1.7; font-weight:300;">
+                    Tecnología e inteligencia artificial, ciencia y filosofía, videojuegos estratégicos, música y deportes al aire libre.
+                </p>
+            </div>
+
+        </div><!-- /cv-aside -->
+
+    </div><!-- /cv-body -->
+
+    <!-- FOOTER -->
+    <div class="cv-footer">
+        <p>Roberto Lavagnino — Ingeniero de Datos & Soluciones de IA</p>
+        <p>roberto.lavagnino@davardata.com</p>
+    </div>
+
+</div><!-- /cv -->
+
 </body>
 </html>
