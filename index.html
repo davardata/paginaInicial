@@ -362,48 +362,56 @@
 </head>
 <body>
     <!-- Hero Section -->
+<!-- Hero Section -->
 <section class="hero">
-  <div class="container">
+  <div class="hero-content">
 
-    <h1 class="hero-title">
+    <h1>
       Infraestructura de datos e inteligencia artificial que convierte información en decisiones
     </h1>
 
-    <p class="hero-subtitle">
-      Plataformas diseñadas para integrar fuentes dispersas, automatizar procesos complejos y transformar texto, imágenes, audio o mapas en conocimiento accionable.
-    </p>
+    <div class="tagline">
+      Plataformas para integrar datos, automatizar procesos y transformar texto, imágenes, audio o mapas en conocimiento accionable.
+    </div>
 
-    <div class="hero-products">
+    <div class="hero-products" style="
+        display:grid;
+        grid-template-columns: repeat(auto-fit,minmax(220px,1fr));
+        gap:20px;
+        margin:40px 0;
+        text-align:left;
+    ">
 
-      <div class="product">
+      <div style="background:rgba(255,255,255,0.08); padding:20px; border-radius:10px;">
         <h3>NAVI</h3>
         <p>Comprensión de lenguaje natural que transforma solicitudes humanas en consultas, procesos y respuestas automáticas.</p>
       </div>
 
-      <div class="product">
-        <h3>ORAH</h3>
-        <p>IA multimodal capaz de interpretar documentos, imágenes, audio y cartografía para convertirlos en datos estructurados listos para análisis.</p>
+      <div style="background:rgba(255,255,255,0.08); padding:20px; border-radius:10px;">
+        <h3>ROEH</h3>
+        <p>Consolidación inteligente de información para integrar fuentes, eliminar duplicados y generar una base confiable.</p>
       </div>
 
-      <div class="product">
-        <h3>KAIROS</h3>
-        <p>Analítica avanzada basada en grafos e inteligencia artificial para descubrir patrones, relaciones ocultas y anomalías en grandes volúmenes de datos.</p>
+      <div style="background:rgba(255,255,255,0.08); padding:20px; border-radius:10px;">
+        <h3>SHAMIR</h3>
+        <p>IA multimodal capaz de interpretar documentos, imágenes, audio y mapas para convertirlos en datos estructurados.</p>
       </div>
 
-      <div class="product">
-        <h3>NEHEM</h3>
-        <p>Arquitectura de datos escalable que consolida fuentes dispersas en pipelines automatizados, data lakes y servicios listos para consumo.</p>
+      <div style="background:rgba(255,255,255,0.08); padding:20px; border-radius:10px;">
+        <h3>KESHET</h3>
+        <p>Motor de análisis de grafos que descubre patrones, relaciones ocultas y estructuras complejas en grandes datos.</p>
       </div>
 
     </div>
 
-    <div class="hero-buttons">
-      <a href="#contacto" class="btn-primary">Solicitar demostración</a>
-      <a href="#soluciones" class="btn-secondary">Ver soluciones</a>
+    <div class="cta-buttons">
+      <a href="#contacto" class="btn btn-primary">Solicitar demostración</a>
+      <a href="#soluciones" class="btn btn-secondary">Ver soluciones</a>
     </div>
 
   </div>
 </section>
+
 
 
    <!-- Products Section -->
